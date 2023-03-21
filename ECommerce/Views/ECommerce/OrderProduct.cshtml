@@ -1,0 +1,428 @@
+﻿
+@model ECommerceModel;
+<section class="w3l-banner-slider-main inner-pagehny">
+    <div class="breadcrumb-infhny">
+        <div class="top-header-content">
+            <header class="tophny-header">
+                <div class="container-fluid">
+                    <div class="top-right-strip row">
+                        <!--/left-->
+                        <div class="top-hny-left-content col-lg-6 pl-lg-0">
+                        </div>
+                        <!--//left-->
+                        <!--/right-->
+                        <ul class="top-hnt-right-content col-lg-6">
+                            <li class="button-log usernhy">
+                                <a class="btn-open" href="#">
+                                    <span class="fa fa-user" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                            <li class="transmitvcart galssescart2 cart cart box_1">
+                                <form action="#" method="post" class="last">
+                                    <input type="hidden" name="cmd" value="_cart">
+                                    <input type="hidden" name="display" value="1">
+                                    <button class="top_transmitv_cart" type="submit" name="submit" value="">
+                                        My Cart
+                                        <span class="fa fa-shopping-cart"></span>
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                        <!--//right-->
+                        <div class="overlay-login text-left">
+                            <button type="button" class="overlay-close1">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </button>
+                            <div class="wrap">
+                                <h5 class="text-center mb-4">Login Now</h5>
+                                <div class="login-bghny p-md-5 p-4 mx-auto mw-100">
+                                    <!--/login-form-->
+                                    <form action="#" method="post">
+                                        <div class="form-group">
+                                            <p class="login-texthny mb-2">Email address</p>
+                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                                   placeholder="" required="">
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                We'll never share your email
+                                                with anyone else.
+                                            </small>
+                                        </div>
+                                        <div class="form-group">
+                                            <p class="login-texthny mb-2">Password</p>
+                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="" required="">
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <div class="userhny-check">
+                                                <label class="check-remember container">
+                                                    <input type="checkbox" class="form-check"> <span class="checkmark"></span>
+                                                    <p class="privacy-policy">Remember me</p>
+                                                </label>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="submit-login btn mb-4">Sign In</button>
+
+                                    </form>
+                                    <!--//login-form-->
+                                </div>
+                                <!---->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/nav-->
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container-fluid serarc-fluid">
+                        <a class="navbar-brand" href="index.html">
+                            Spry<span class="lohny">S</span>tore
+                        </a>
+                        <div class="search-right">
+                            <!-- search popup -->
+                            <div id="search" class="pop-overlay">
+                                <div class="popup">
+                                    <form action="#" method="post" class="search-box">
+                                        <input type="search" placeholder="Keyword" name="search" required="required" autofocus="">
+                                        <button type="submit" class="btn">Search</button>
+                                    </form>
+                                </div>
+                                <a class="close" href="#">×</a>
+                            </div>
+                            <!-- /search popup -->
+                        </div>
+                        <!--//search-right-->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon fa fa-bars"> </span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="ECommerce" asp-action="CustomerDashboard">Home</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" asp-controller="ECommerce" asp-action="About">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="ECommerce" asp-action="Contact">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!--//nav-->
+            </header>
+            <div class="breadcrumb-contentnhy">
+                <div class="container">
+                    <nav aria-label="breadcrumb">
+                        <h2 class="hny-title text-center"></h2>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@if (Model != null && Model.ListProductModels != null)
+{
+    @foreach (var item in Model.ListProductModels )
+    {
+        <main class="container">
+
+            <!-- Left Column / Headphones Image -->
+            <div class="col-lg-6 welcome-image">
+                <a asp-controller="ECommerce" asp-action="OrderProduct"><img src="~/Images/@item.Image" width="400" height="400"  class="img-fluid" alt="" /></a>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-column">
+                <!-- Product Description -->
+                <div class="product-description">
+                    <h3>@item.Brand &nbsp;@item.Model</h3>
+                    <div class="Star">
+                        @item.Rating &#9734;
+                    </div>
+                    <p>
+                        <ul>
+                            <li>@item.Specification</li>
+                        </ul>
+
+                    </p>
+                </div>
+
+                <!-- Product Configuration -->
+                <div class="product-configuration">
+                    <!-- Product Color -->
+                    <div class="product-color">
+                        <span>Color</span>
+                        <div class="color-choose" >
+                            <div>
+                                <input data-image="red" type="radio" id="red" name="colour" checked required style="height: 50px; width: 40px;">
+                                <label for="red"><span></span></label>
+                           </div>
+                           <div>
+                                <input data-image="blue" type="radio" id="blue" name="colour" value="blue" required style="height: 50px; width: 40px;">
+                                <label for="blue"><span></span></label>
+                            </div>
+                            <div>
+                                <input data-image="black" type="radio" id="pink" name="colour" value="black" required style="height: 50px; width: 40px;">
+                                <label for="black"><span></span></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+
+                <!-- Product Pricing -->
+                <div class="product-price">
+                    <span>&#x20B9;@item.Price</span>
+                    <input asp-for="OrderDetails.ProductId" type="hidden" name="ProductId">
+                    <a asp-controller="ECommerce" asp-action="Order" class="cart-btn">Buy Now</a>&nbsp;&nbsp;
+                    <a asp-controller="ECommerce" asp-action="ViewProduct" class="cart-btn">Cancel</a>
+                </div>
+            </div>
+        </main>
+        <br /><br />
+
+    }
+}
+              <style>
+                  .Star {
+                      line-height: normal;
+                      display: inline-block;
+                      color: #fff;
+                      padding: 2px 4px 2px 6px;
+                      border-radius: 3px;
+                      font-weight: 500;
+                      font-size: 12px;
+                      vertical-align: middle;
+                      background-color: #388e3c;
+                  }
+              </style>
+<style>
+    #red {
+        accent-color: blue;
+    }
+
+    #pink {
+        accent-color: red;
+    }
+
+    #blue {
+        accent-color: black;
+</style>
+<style>
+
+    .left-column,
+    .right-column {
+        width: 100%;
+    }
+
+        .left-column img {
+            width: 300px;
+            right: 0;
+            top: -65px;
+            left: initial;
+        }
+==
+</style>
+<style>
+    html, body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 15px;
+        display: flex;
+    }
+    /* Columns */
+    .left-column {
+        width: 65%;
+        position: relative;
+    }
+
+    .right-column {
+        width: 35%;
+        margin-top: 60px;
+    }
+    /* Left Column */
+    .left-column img {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
+
+        .left-column img.active {
+            opacity: 1;
+        }
+    /* Product Description */
+    .product-description {
+        border-bottom: 1px solid #E1E8EE;
+        margin-bottom: 20px;
+    }
+
+        .product-description span {
+            font-size: 12px;
+            color: #358ED7;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .product-description h1 {
+            font-weight: 300;
+            font-size: 52px;
+            color: #43484D;
+            letter-spacing: -2px;
+        }
+
+        .product-description p {
+            font-size: 16px;
+            font-weight: 300;
+            color: #86939E;
+            line-height: 24px;
+        }
+    /* Product Color */
+    .product-color {
+        margin-bottom: 30px;
+    }
+
+    .color-choose div {
+        display: inline-block;
+    }
+
+    .color-choose input[type=&amp;quot;radio&amp;quot;] {
+        display: none;
+    }
+
+        .color-choose input[type=&amp;quot;radio&amp;quot;] + label span {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            margin: -1px 4px 0 0;
+            vertical-align: middle;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+
+        .color-choose input[type=&amp;quot;radio&amp;quot;] + label span {
+            border: 2px solid #FFFFFF;
+            box-shadow: 0 1px 3px 0 rgba(0,0,0,0.33);
+        }
+
+        .color-choose input[type=&amp;quot;radio&amp;quot;]#red + label span {
+            background-color: #C91524;
+        }
+
+        .color-choose input[type=&amp;quot;radio&amp;quot;]#blue + label span {
+            background-color: #314780;
+        }
+
+        .color-choose input[type=&amp;quot;radio&amp;quot;]#black + label span {
+            background-color: #323232;
+        }
+
+        .color-choose input[type=&amp;quot;radio&amp;quot;]:checked + label span {
+            background-image: url(images/check-icn.svg);
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    /* Cable Configuration */
+    .cable-choose {
+        margin-bottom: 20px;
+    }
+
+        .cable-choose button {
+            border: 2px solid #E1E8EE;
+            border-radius: 6px;
+            padding: 13px 20px;
+            font-size: 14px;
+            color: #5E6977;
+            background-color: #fff;
+            cursor: pointer;
+            transition: all .5s;
+        }
+
+            .cable-choose button:hover,
+            .cable-choose button:active,
+            .cable-choose button:focus {
+                border: 2px solid #86939E;
+                outline: none;
+            }
+
+    .cable-config {
+        border-bottom: 1px solid #E1E8EE;
+        margin-bottom: 20px;
+    }
+
+        .cable-config a {
+            color: #358ED7;
+            text-decoration: none;
+            font-size: 12px;
+            position: relative;
+            margin: 10px 0;
+            display: inline-block;
+        }
+
+            .cable-config a:before {
+                content: &amp;
+                quot;
+                ?&amp;
+                quot;
+                ;
+                height: 15px;
+                width: 15px;
+                border-radius: 50%;
+                border: 2px solid rgba(53, 142, 215, 0.5);
+                display: inline-block;
+                text-align: center;
+                line-height: 16px;
+                opacity: 0.5;
+                margin-right: 5px;
+            }
+    /* Product Price */
+    .product-price {
+        display: flex;
+        align-items: center;
+    }
+
+        .product-price span {
+            font-size: 26px;
+            font-weight: 300;
+            color: #43474D;
+            margin-right: 20px;
+        }
+
+    .cart-btn {
+        display: inline-block;
+        background-color: #7DC855;
+        border-radius: 6px;
+        font-size: 16px;
+        color: #FFFFFF;
+        text-decoration: none;
+        padding: 12px 30px;
+        transition: all .5s;
+    }
+
+        .cart-btn:hover {
+            background-color: #64af3d;
+        }
+   
+    $(document).ready(function() {
+
+              $('.color-choose input').on('click', function() {
+                  var headphonesColor = $(this).attr('data-image');
+
+                  $('.active').removeClass('active');
+                  $('.left-column img[data-image = ' + headphonesColor + ']').addClass('active');
+                  $(this).addClass('active');
+              });
+
+            });
+</style>

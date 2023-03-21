@@ -1,0 +1,339 @@
+﻿@model ECommerce.Models.ECommerceModel;
+
+
+<link href="http://www.professorcloud.com/styles/cloud-zoom.css" rel="stylesheet" type="text/css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js"></script>
+<script type="text/JavaScript" src="http://www.professorcloud.com/js/cloud-zoom.1.0.2.js"></script>
+<style>
+    body {
+        letter-spacing: 0.8px;
+        background-repeat: no-repeat;
+    }
+
+    .container-fluid {
+        margin-top: 80px !important;
+        margin-bottom: 80px !important;
+    }
+
+    p {
+        font-size: 14px;
+        margin-bottom: 7px;
+    }
+
+    .cursor-pointer {
+        cursor: pointer;
+    }
+
+    a {
+        text-decoration: none !important;
+        color: #651FFF !important;
+    }
+
+    .bold {
+        font-weight: 600;
+    }
+
+    .small {
+        font-size: 12px !important;
+        letter-spacing: 0.5px !important;
+    }
+
+    .Today {
+        color: rgb(83, 83, 83);
+    }
+
+
+    .btn-outline-primary:hover {
+        background-color: #4bb8a9 !important;
+        color: #fff !important;
+        border: 1.3px solid #4bb8a9;
+    }
+
+    .btn-outline-primary:focus,
+    .btn-outline-primary:active {
+        outline: none !important;
+        box-shadow: none !important;
+        border-color: #42A5F5 !important;
+    }
+
+    #progressbar {
+        margin-bottom: 30px;
+        overflow: hidden;
+        color: #455A64;
+        padding-left: 0px;
+        margin-top: 30px
+    }
+
+        #progressbar li {
+            list-style-type: none;
+            font-size: 13px;
+            width: 33.33%;
+            float: left;
+            position: relative;
+            font-weight: 400;
+            color: #455A64 !important;
+        }
+
+        #progressbar #step1:before {
+            content: "1";
+            color: #fff;
+            width: 29px;
+            margin-left: 15px !important;
+            padding-left: 11px !important;
+        }
+
+
+        #progressbar #step2:before {
+            content: "2";
+            color: #fff;
+            width: 29px;
+        }
+
+        #progressbar #step3:before {
+            content: "3";
+            color: #fff;
+            width: 29px;
+            margin-right: 15px !important;
+            padding-right: 11px !important;
+        }
+
+        #progressbar li:before {
+            line-height: 29px;
+            display: block;
+            font-size: 12px;
+            background: #455A64;
+            border-radius: 50%;
+            margin: auto;
+        }
+
+        #progressbar li:after {
+            content: '';
+            width: 121%;
+            height: 2px;
+            background: #455A64;
+            position: absolute;
+            left: 0%;
+            right: 0%;
+            top: 15px;
+            z-index: -1;
+        }
+
+        #progressbar li:nth-child(2):after {
+            left: 50%;
+        }
+
+        #progressbar li:nth-child(1):after {
+            left: 25%;
+            width: 121%;
+        }
+
+        #progressbar li:nth-child(3):after {
+            left: 25% !important;
+            width: 50% !important;
+        }
+
+        #progressbar li.active:before,
+        #progressbar li.active:after {
+            background: #4bb8a9;
+        }
+
+    .card {
+        background-color: #fff;
+        box-shadow: 2px 4px 15px 0px rgb(0, 108, 170);
+        z-index: 0;
+    }
+
+    small {
+        font-size: 12px !important;
+    }
+
+    .a {
+        justify-content: space-between !important;
+    }
+
+    .border-line {
+        border-right: 1px solid rgb(226, 206, 226)
+    }
+
+    .card-footer img {
+        opacity: 0.3;
+    }
+
+    .card-footer h5 {
+        font-size: 1.1em;
+        color: #8C9EFF;
+        cursor: pointer;
+    }
+</style>
+
+<section class="w3l-banner-slider-main inner-pagehny">
+    <div class="breadcrumb-infhny">
+
+        <div class="top-header-content">
+
+            <header class="tophny-header">
+                <div class="container-fluid">
+                    <div class="top-right-strip row">
+                        <!--/left-->
+                        <div class="top-hny-left-content col-lg-6 pl-lg-0">
+                        </div>
+                        <!--//left-->
+                        <!--/right-->
+                        <ul class="top-hnt-right-content col-lg-6">
+
+                            <li class="button-log usernhy">
+                                <a class="btn-open" href="#">
+                                    <span class="fa fa-user" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                            <li class="transmitvcart galssescart2 cart cart box_1">
+                                <form action="#" method="post" class="last">
+                                    <input type="hidden" name="cmd" value="_cart">
+                                    <input type="hidden" name="display" value="1">
+                                    <button class="top_transmitv_cart" type="submit" name="submit" value="">
+                                        My Cart
+                                        <span class="fa fa-shopping-cart"></span>
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                        <!--//right-->
+                        <div class="overlay-login text-left">
+                            <button type="button" class="overlay-close1">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </button>
+                            <div class="wrap">
+                                <h5 class="text-center mb-4">Login Now</h5>
+                                <div class="login-bghny p-md-5 p-4 mx-auto mw-100">
+                                    <!--/login-form-->
+                                    <form action="#" method="post">
+                                        <div class="form-group">
+                                            <p class="login-texthny mb-2">Email address</p>
+                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                                   placeholder="" required="">
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                We'll never share your email
+                                                with anyone else.
+                                            </small>
+                                        </div>
+                                        <div class="form-group">
+                                            <p class="login-texthny mb-2">Password</p>
+                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="" required="">
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <div class="userhny-check">
+                                                <label class="check-remember container">
+                                                    <input type="checkbox" class="form-check"> <span class="checkmark"></span>
+                                                    <p class="privacy-policy">Remember me</p>
+                                                </label>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="submit-login btn mb-4">Sign In</button>
+
+                                    </form>
+                                    <!--//login-form-->
+                                </div>
+                                <!---->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/nav-->
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container-fluid serarc-fluid">
+                        <a class="navbar-brand" href="index.html">
+                            Spry<span class="lohny">S</span>tore
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon fa fa-bars"> </span>
+                        </button>
+
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="ECommerce" asp-action="CustomerDashboard">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="ECommerce" asp-action="About">About</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="#">Contact</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </nav>
+                <!--//nav-->
+            </header>
+            <div class="breadcrumb-contentnhy">
+                <div class="container">
+                    <nav aria-label="breadcrumb">
+                        <h2 class="hny-title text-center">Contact Us</h2>
+                        <ol class="breadcrumb mb-0">
+                            <li>
+                                <a href="index.html">Home</a>
+                                <span class="fa fa-angle-double-right"></span>
+                            </li>
+                            <li class="active">Contact</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container-fluid my-5 d-sm-flex justify-content-center">
+    @foreach (var item in Model.ListOrderModels)
+    {
+        <div class="card px-2">
+            <div class="card-header bg-white">
+                <div class="row justify-content-between">
+                    <div class="col">
+                        <p class="text-muted"> Order ID  <span class="font-weight-bold text-dark">@item.OrderId</span></p>
+                        <br />
+                        <p class="text-muted"> Place On <span class="font-weight-bold text-dark">12,March 2019</span> </p>
+                    </div>
+                    <div class="flex-col my-auto">
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="media flex-column flex-sm-row">
+                    <div class="media-body ">
+                        <h5 class="bold">@item.Brand &nbsp; @item.Model</h5>  
+                        <p class="text-muted"> Qt: 1 </p>
+                        <h5 class="mt-3 mb-4 bold"> <span class="mt-5">&#x20B9;</span>  <span>@item.Price </span></h5>
+                        <p class="text-muted">Tracking Status on: <span class="Today">11:30pm, Today</span></p>
+                    </div>
+                    <img class="align-self-center img-fluid" src="~/Images/@item.Image"  width="180 " height="180">
+                </div>
+            </div>
+            <div class="row px-3">
+            </div>
+            <div class="card-footer  bg-white px-sm-3 pt-sm-4 px-0">
+                <div class="row text-center  ">
+                    <div class="col my-auto  border-line "><a asp-controller="ECommerce" asp-route-OrderId="@item.OrderId" asp-action="TrackOrder"><h5>Track</h5></a></div>
+                    <div class="col  my-auto  border-line "><a asp-controller="ECommerce" asp-action="CustomerDashboard"><h5>Cancel</h5></a></div>
+                </div>
+            </div>
+        </div> <br />
+        <br />
+        <br />
+        <br />
+    }
+
+</div>
+<script>
+date = new Date();
+year = date.getFullYear();
+month = date.getMonth() + 1;
+day = date.getDate();
+document.getElementById("current_date").innerHTML = month + "/" + day + "/" + year;
+</script>
+

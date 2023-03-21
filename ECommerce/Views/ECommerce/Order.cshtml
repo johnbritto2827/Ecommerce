@@ -1,0 +1,231 @@
+﻿
+
+@model ECommerceModel;
+
+<section></section>
+<div class="container">
+    <div class="title" style="text-align:center;">
+        <h2>Place Order </h2>
+    </div>
+    <div class="d-flex">
+        <form asp-controller="ECommerce" asp-action="SaveOrder" type="post">
+            <input asp-for="OrderDetails.ProductId" type="hidden" name="ProductId"  >
+
+            <label>
+                <span class="fname"> Name <span class="required">*</span></span>
+                <input asp-for="OrderDetails.FullName" type="text" name="FullName" required onkeypress="return allowOnlyLetters(event,this);" maxlength="20">
+            </label>
+
+            <label>
+                <span>Mobile Number<span class="required">*</span></span>
+                <input asp-for="OrderDetails.MobileNumber" type="text" name="MobileNumber" maxlength="10" required
+                       oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+            </label>
+
+            <label>
+                <span> Address <span class="required">*</span></span>
+                <input asp-for="OrderDetails.Address" type="text" name="Address" required>
+            </label>
+            <label>
+                <span> City <span class="required">*</span></span>
+                <input asp-for="OrderDetails.City" type="text" name="city" required onkeypress="return allowOnlyLetters(event,this);">
+            </label>
+
+            <label>
+                <span>State <span class="required">*</span></span>
+                <input asp-for="OrderDetails.State" type="text" name="State" maxlength="50" required onkeypress="return allowOnlyLetters(event,this);">
+            </label>
+            <label>
+                <span>pincode <span class="required">*</span></span>
+                <input asp-for="OrderDetails.PinCode" type="text" name="PinCode" maxlength="6" required oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');">
+            </label>
+            <label>
+                <span>Email  <span class="required">*</span></span>
+                <input asp-for="OrderDetails.Email" type="email" name="Email" required>
+            </label>
+            <label>
+                <span>Address type <span class="required">*</span></span><br />
+                <input asp-for="OrderDetails.AddressType" type="radio" name="Addresstype" value="Home" checked required> Home(All day Delivery) &nbsp; &nbsp;&nbsp;&nbsp;<input type="radio" name="Addresstype" value="Company">Work(Delivery between 10AM -5PM)
+            </label>
+            <button type="submit">Place Order</button>
+            <a asp-controller="ECommerce" asp-action="ViewProduct"><button type="button" onClick="confirm('&#128546;Canceld Order')">Cancel</button></a>
+        </form>
+
+        <div class="Yorder">
+            <table>
+
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free shipping</td>
+                </tr>
+            </table><br>
+            <div>
+                <input type="radio" name="dbt" value="cd" checked> Cash on Delivery
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+<br />
+<br />
+<br />
+<script language="Javascript" type="text/javascript">
+
+    function allowOnlyLetters(e, t) {
+        if (window.event) {
+            var charCode = window.event.keyCode;
+        }
+        else if (e) {
+            var charCode = e.which; 
+        }
+        else { return true; }
+        if ((charCode > 64 && charCode < 91) || (charCode > 96 && charCode < 123))
+            return true;
+        else {
+            alert("Please enter only alphabets");
+            return false;
+        }
+    }
+</script>
+
+<style>
+    body {
+        /*background: url('http://all4desktop.com/data_images/original/4236532-background-images.jpg');*/
+        font-family: 'Roboto Condensed', sans-serif;
+        color: #262626;
+        margin: 5% 0;
+    }
+
+    .container {
+        width: 100%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+
+    .d-flex {
+        display: flex;
+        flex-direction: row;
+        background: #f6f6f6;
+        border-radius: 0 0 5px 5px;
+        padding: 25px;
+    }
+
+    form {
+        flex: 4;
+    }
+
+    .Yorder {
+        flex: 2;
+    }
+
+    .title {
+        background: -webkit-gradient(linear, left top, right bottom, color-stop(0, #5195A8), color-stop(100, #70EAFF));
+        background: -moz-linear-gradient(top left, #5195A8 0%, #70EAFF 100%);
+        background: -o-linear-gradient(top left, #5195A8 0%, #70EAFF 100%);
+        background: linear-gradient(to bottom right, #5195A8 0%, #70EAFF 100%);
+        border-radius: 5px 5px 0 0;
+        padding: 20px;
+        color: #f6f6f6;
+    }
+
+    h2 {
+        margin: 0;
+        padding-left: 15px;
+    }
+
+    .required {
+        color: red;
+    }
+
+    label, table {
+        display: block;
+        margin: 15px;
+    }
+
+        label > span {
+            float: left;
+            width: 25%;
+            margin-top: 12px;
+            padding-right: 10px;
+        }
+
+    input[type="text"], input[type="tel"], input[type="email"], select {
+        width: 70%;
+        height: 30px;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+        border: 1px solid #dadada;
+        color: #888;
+    }
+
+    select {
+        width: 72%;
+        height: 45px;
+        padding: 5px 10px;
+        margin-bottom: 10px;
+    }
+
+    .Yorder {
+        margin-top: 15px;
+        height: 600px;
+        padding: 20px;
+        border: 1px solid #dadada;
+    }
+
+    table {
+        margin: 0;
+        padding: 0;
+    }
+
+    th {
+        border-bottom: 1px solid #dadada;
+        padding: 10px 0;
+    }
+
+    tr > td:nth-child(1) {
+        text-align: left;
+        color: #2d2d2a;
+    }
+
+    tr > td:nth-child(2) {
+        text-align: right;
+        color: #52ad9c;
+    }
+
+    td {
+        border-bottom: 1px solid #dadada;
+        padding: 25px 25px 25px 0;
+    }
+
+    p {
+        display: block;
+        color: #888;
+        margin: 0;
+        padding-left: 25px;
+    }
+
+    .Yorder > div {
+        padding: 15px 0;
+    }
+
+    button {
+        width: 100%;
+        margin-top: 10px;
+        padding: 10px;
+        border: none;
+        border-radius: 30px;
+        background: #52ad9c;
+        color: #fff;
+        font-size: 15px;
+        font-weight: bold;
+    }
+
+        button:hover {
+            cursor: pointer;
+            background: #428a7d;
+        }
+</style>

@@ -1,0 +1,346 @@
+﻿@model ECommerce.Models.ECommerceModel;
+@*@{ Layout = null;}*@
+<br />
+<br />
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Order List | SpryStore</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @*<!-- favicon
+            ============================================ -->
+        <link rel="shortcut icon" type="image/x-icon" href="~/ECommerce/admin/img/favicon.ico">
+        <!-- Google Fonts
+            ============================================ -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i,800" rel="stylesheet">
+        <!-- Bootstrap CSS
+            ============================================ -->
+        <link rel="stylesheet" href="~/ECommerce/admin/css/bootstrap.min.css">
+        <!-- Bootstrap CSS
+            ============================================ -->
+        <link rel="stylesheet" href="~/ECommerce/admin/css/font-awesome.min.css">*@
+    <!-- adminpro icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/ECommerce/admin/css/adminpro-custon-icon.css">
+    <!-- meanmenu icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/ECommerce/admin/css/meanmenu.min.css">
+    <!-- mCustomScrollbar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/ECommerce/admin/css/jquery.mCustomScrollbar.min.css">
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/ECommerce/admin/css/animate.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/ECommerce/admin/css/data-table/bootstrap-table.css">
+    <link rel="stylesheet" href="~/ECommerce/admin/css/data-table/bootstrap-editable.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/ECommerce/admin/css/normalize.css">
+    <!-- charts CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/ECommerce/admin/css/c3.min.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/ECommerce/admin/style.css">
+    <!-- responsive CSS
+        ============================================ -->
+
+    <link rel="stylesheet" href="~/ECommerce/admin/css/responsive.css">
+    <!-- modernizr JS
+        ============================================ -->
+    <script src="~/ECommerce/admin/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<section class="w3l-banner-slider-main inner-pagehny">
+    <div class="breadcrumb-infhny">
+        <div class="top-header-content">
+            <header class="tophny-header">
+                <div class="container-fluid">
+                    <div class="top-right-strip row">
+                        <!--/left-->
+                        <div class="top-hny-left-content col-lg-6 pl-lg-0">
+                        </div>
+                        <!--//left-->
+                        <!--/right-->
+                        <ul class="top-hnt-right-content col-lg-6">
+                            <li class="button-log usernhy">
+                                <a class="btn-open" href="#">
+                                    <span class="fa fa-user" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                            <li class="transmitvcart galssescart2 cart cart box_1">
+                                <form action="#" method="post" class="last">
+                                    <input type="hidden" name="cmd" value="_cart">
+                                    <input type="hidden" name="display" value="1">
+                                    <button class="top_transmitv_cart" type="submit" name="submit" value="">
+                                        My Cart
+                                        <span class="fa fa-shopping-cart"></span>
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                        <!--//right-->
+                        <div class="overlay-login text-left">
+                            <button type="button" class="overlay-close1">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </button>
+                            <div class="wrap">
+                                <h5 class="text-center mb-4">Login Now</h5>
+                                <div class="login-bghny p-md-5 p-4 mx-auto mw-100">
+                                    <!--/login-form-->
+                                    <form action="#" method="post">
+                                        <div class="form-group">
+                                            <p class="login-texthny mb-2">Email address</p>
+                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                                   placeholder="" required="">
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                We'll never share your email
+                                                with anyone else.
+                                            </small>
+                                        </div>
+                                        <div class="form-group">
+                                            <p class="login-texthny mb-2">Password</p>
+                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="" required="">
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <div class="userhny-check">
+                                                <label class="check-remember container">
+                                                    <input type="checkbox" class="form-check"> <span class="checkmark"></span>
+                                                    <p class="privacy-policy">Remember me</p>
+                                                </label>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="submit-login btn mb-4">Sign In</button>
+                                    </form>
+                                    <a asp-controller="ECommerce" asp-action="Login"> <button type="submit" class="submit-login btn mb-4">LogOut</button></a>
+
+                                    <!--//login-form-->
+                                </div>
+                                <!---->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/nav-->
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container-fluid serarc-fluid">
+                        <a class="navbar-brand" href="index.html">
+                            Spry<span class="lohny">S</span>tore
+                        </a>
+                        <!--/search-right-->
+                        <div class="search-right">
+                            <!-- search popup -->
+                            <div id="search" class="pop-overlay">
+                                <div class="popup">
+                                    <form action="#" method="post" class="search-box">
+                                        <input type="search" placeholder="Keyword" name="search" required="required" autofocus="">
+                                        <button type="submit" class="btn">Search</button>
+                                    </form>
+                                </div>
+                                <a class="close" href="#">×</a>
+                            </div>
+                            <!-- /search popup -->
+                        </div>
+                        <!--//search-right-->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon fa fa-bars"> </span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="ECommerce" asp-action="AdminDashboard">Home</a>
+                                </li>
+                                <li class="nav-item ">
+                                    <a class="nav-link">About</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="ECommerce" asp-action="#">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+                <!--//nav-->
+            </header>
+            <div class="breadcrumb-contentnhy">
+                <div class="container">
+                    <nav aria-label="breadcrumb">
+                        <h2 class="hny-title text-center"> Order Details</h2>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+<br />
+<body style="background-color:white;">
+    <div class="data-table-area mg-b-40">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <br />
+                    <h3>   <a asp-controller="ECommerce" asp-action="AdminDashboard"> <button style="background-color:white;">Back</button></a></h3>
+                    <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true">
+                        <thead>
+                            <tr>
+                                <th style="text-align:center">ChangeStatus</th>
+                                <th style="text-align:center">ProductName</th>
+                                <th style="text-align:center">Name</th>
+                                <th style="text-align:center">MobileNumber</th>
+                                <th style="text-align:center">Address</th>
+                                <th style="text-align:center">City</th>
+                                <th style="text-align:center">State</th>
+                                <th style="text-align:center">PinCode</th>
+                                <th style="text-align:center">Email</th>
+                                <th style="text-align:center">AddressType</th>
+                                <th style="text-align:center">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Model != null && Model.ListOrderModels != null)
+                            {
+                                @foreach (var item in Model.ListOrderModels)
+                                {
+                                    <tr>
+                                        <td><a id="@item.OrderId" data-toggle="modal" data-target="#exampleModal" onclick="Openmodal(this.id);">Change</a></td>
+                                        <td>Name</td>
+                                        <td>@item.FullName</td>
+                                        <td>@item.MobileNumber</td>
+                                        <td>@item.Address</td>
+                                        <td>@item.City</td>
+                                        <td>@item.State</td>
+                                        <td>@item.PinCode</td>
+                                        <td>@item.Email</td>
+                                        <td>@item.AddressType</td>
+                                        <td>@item.Status</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="modal fade MyModal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="form-select-list">
+                                <select class="form-control custom-select-value" id="ddlProductStatus" name="account">
+                                    <option value="0">Select</option>
+                                    <option value="1">Order Processed</option>
+                                    <option value="2">Order Shipped</option>
+                                    <option value="3">Order in Route</option>
+                                    <option value="4">Order Deliverd</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" id="btnSave" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <input type="hidden" id="hdproductid" value="" />
+    <!-- Chat Box End-->
+    <!-- jquery
+        ============================================ -->
+    <script src="~/ECommerce/admin/js/vendor/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="~/ECommerce/admin/js/bootstrap.min.js"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="~/ECommerce/admin/js/jquery.meanmenu.js"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="~/ECommerce/admin/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script src="~/ECommerce/admin/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="~/ECommerce/admin/js/jquery.scrollUp.min.js"></script>
+    <!-- counterup JS
+        ============================================ -->
+    <script src="~/ECommerce/admin/js/counterup/jquery.counterup.min.js"></script>
+    <script src="~/ECommerce/admin/js/counterup/waypoints.min.js"></script>
+    <!-- peity JS
+        ============================================ -->
+    <script src="~/ECommerce/admin/js/peity/jquery.peity.min.js"></script>
+    <script src="~/ECommerce/admin/js/peity/peity-active.js"></script>
+    <!-- sparkline JS
+        ============================================ -->
+    <script src="~/ECommerce/admin/js/sparkline/jquery.sparkline.min.js"></script>
+    <script src="~/ECommerce/admin/js/sparkline/sparkline-active.js"></script>
+    <!-- map JS
+        ============================================ -->
+    <script src="~/ECommerce/admin/js/map/raphael.min.js"></script>
+    <script src="~/ECommerce/admin/js/map/jquery.mapael.js"></script>
+    <script src="~/ECommerce/admin/js/map/france_departments.js"></script>
+    <script src="~/ECommerce/admin/js/map/world_countries.js"></script>
+    <script src="~/ECommerce/admin/js/map/usa_states.js"></script>
+    <script src="~/ECommerce/admin/js/map/map-active.js"></script>
+    <!-- data table JS
+        ============================================ -->
+    <script src="~/ECommerce/admin/js/data-table/bootstrap-table.js"></script>
+    <script src="~/ECommerce/admin/js/data-table/tableExport.js"></script>
+    <script src="~/ECommerce/admin/js/data-table/data-table-active.js"></script>
+    <script src="~/ECommerce/admin/js/data-table/bootstrap-table-editable.js"></script>
+    <script src="~/ECommerce/admin/js/data-table/bootstrap-editable.js"></script>
+    <script src="~/ECommerce/admin/js/data-table/bootstrap-table-resizable.js"></script>
+    <script src="~/ECommerce/admin/js/data-table/colResizable-1.5.source.js"></script>
+    <script src="~/ECommerce/admin/js/data-table/bootstrap-table-export.js"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="~/ECommerce/admin/js/main.js"></script>
+    <script>
+         $("#btnSave").click(function () {
+             ($('#hdproductid').val());
+             ($('#ddlProductStatus').val());
+
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("UpdateStatus")',
+                data: { OrderId: $('#hdproductid').val(), Status: $('#ddlProductStatus').val() },
+                dataType: "json",
+                success: function () {
+                    alert("Status has been added successfully..");
+                    window.location.reload();
+                },
+                error: function () {
+                    alert("Error while inserting data");
+                }
+            });
+
+        });
+
+        function Openmodal(OrderId) {
+            $('#hdproductid').val(OrderId);
+        }
+
+    </script>
+</body>
+
+
+

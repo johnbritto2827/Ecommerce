@@ -1,0 +1,192 @@
+﻿@model ECommerce.Models.ECommerceModel;
+
+
+<link rel="stylesheet" href="style.css">
+<link href="http://www.professorcloud.com/styles/cloud-zoom.css" rel="stylesheet" type="text/css">
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js"></script>
+<script type="text/JavaScript" src="http://www.professorcloud.com/js/cloud-zoom.1.0.2.js"></script>
+<script src="~/Scripts/app.js"></script>
+
+<section class="w3l-banner-slider-main inner-pagehny">
+    <div class="breadcrumb-infhny">
+        <div class="top-header-content">
+            <header class="tophny-header">
+                <div class="container-fluid">
+                    <div class="top-right-strip row">
+                        <!--/left-->
+                        <div class="top-hny-left-content col-lg-6 pl-lg-0">
+                        </div>
+                        <!--//left-->
+                        <!--/right-->
+                        <ul class="top-hnt-right-content col-lg-6">
+                            <li class="button-log usernhy">
+                                <a class="btn-open" href="#">
+                                    <span class="fa fa-user" aria-hidden="true"></span>
+                                </a>
+                            </li>
+                            <li class="transmitvcart galssescart2 cart cart box_1">
+                                <form action="#" method="post" class="last">
+                                    <input type="hidden" name="cmd" value="_cart">
+                                    <input type="hidden" name="display" value="1">
+                                    <button class="top_transmitv_cart" type="submit" name="submit" value="">
+                                        My Cart
+                                        <span class="fa fa-shopping-cart"></span>
+                                    </button>
+                                </form>
+                            </li>
+                        </ul>
+                        <!--//right-->
+                        <div class="overlay-login text-left">
+                            <button type="button" class="overlay-close1">
+                                <i class="fa fa-times" aria-hidden="true"></i>
+                            </button>
+                            <div class="wrap">
+                                <h5 class="text-center mb-4">Login Now</h5>
+                                <div class="login-bghny p-md-5 p-4 mx-auto mw-100">
+                                    <!--/login-form-->
+                                    <form action="#" method="post">
+                                        <div class="form-group">
+                                            <p class="login-texthny mb-2">Email address</p>
+                                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                                   placeholder="" required="">
+                                            <small id="emailHelp" class="form-text text-muted">
+                                                We'll never share your email
+                                                with anyone else.
+                                            </small>
+                                        </div>
+                                        <div class="form-group">
+                                            <p class="login-texthny mb-2">Password</p>
+                                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="" required="">
+                                        </div>
+                                        <div class="form-check mb-2">
+                                            <div class="userhny-check">
+                                                <label class="check-remember container">
+                                                    <input type="checkbox" class="form-check"> <span class="checkmark"></span>
+                                                    <p class="privacy-policy">Remember me</p>
+                                                </label>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="submit-login btn mb-4">Sign In</button>
+
+                                    </form>
+                                    <!--//login-form-->
+                                </div>
+                                <!---->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--/nav-->
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <div class="container-fluid serarc-fluid">
+                        <a class="navbar-brand" href="index.html">
+                            Spry<span class="lohny">S</span>tore
+                        </a>
+                        <!--/search-right-->
+                        <div class="search-right">
+                                    <span class="fa fa-search mr-2" aria-hidden="true"></span>
+                                    <span class="search-text">Search here</span>
+                            <!-- search popup -->
+                            <div id="search" class="pop-overlay">
+                                <div class="popup">
+
+                                    <form action="#" method="post" class="search-box">
+                                        <input type="search" placeholder="Keyword" name="search" required="required" autofocus="">
+                                        <button type="submit" class="btn">Search</button>
+                                    </form>
+
+                                </div>
+
+                                <a class="close" href="#">×</a>
+                            </div>
+                            <!-- /search popup -->
+                        </div>
+                        <!--//search-right-->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon fa fa-bars"> </span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="ECommerce" asp-action="CustomerDashboard">Home</a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" asp-controller="ECommerce" asp-action="About">About</a>
+                                </li>
+
+
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-controller="ECommerce" asp-action="Contact">Contact</a>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </nav>
+                <!--//nav-->
+            </header>
+            <div class="breadcrumb-contentnhy">
+                <div class="container">
+                    <nav aria-label="breadcrumb">
+                        <h2 class="hny-title text-center">Mobiles</h2>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="w3l-wecome-content-6">
+
+    @if (Model != null && Model.ListProductModels != null)
+    {
+        @foreach (var item in Model.ListProductModels)
+        {
+            <div class="container py-lg-5">
+                <div class="welcome-grids row">
+                    <div class="col-lg-6 welcome-image">
+                        <a  asp-controller="ECommerce" asp-action="Orderproduct" asp-route-ProductId="@item.ProductId" >
+                            <img src="~/Images/@item.Image" width="400" height="480" />
+                        </a>
+                    </div>
+                    <div class="col-lg-6 mb-lg-0 mb-5">
+                        <a  asp-controller="ECommerce" asp-action="Orderproduct" asp-route-ProductId="@item.ProductId" >
+                            <asp:placeholder id="placeholder1" runat="server" />
+                            <p class="hny-title">
+                                <h1>@item.Brand &nbsp;@item.Model</h1>
+                                <h3 style="color:black;text-align:right">&#x20b9;@item.Price</h3>
+                                <h6 style="color:green;text-align:right">@item.Discount &#x25;off</h6>
+                            </p>
+                        </a>
+                        <div class="Star" style="text-align:center;width:40px;height:22px;">
+                            @item.Rating &#9734;
+                        </div>
+                        <p>
+                            <ul>
+                                <li>@item.Specification</li>
+                                <li>@item.Colour</li>
+                                <li>@item.Storage</li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+</section>
+<style>
+    .Star {
+        line-height: normal;
+        display: inline-block;
+        color: #fff;
+        padding: 2px 4px 2px 6px;
+        border-radius: 3px;
+        font-weight: 500;
+        font-size: 12px;
+        vertical-align: middle;
+        background-color: #388e3c;
+    }
+</style>

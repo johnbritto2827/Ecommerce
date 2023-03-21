@@ -1,0 +1,183 @@
+﻿@{ Layout = null;}
+
+@model ECommerceModel;
+
+<!doctype html>
+<html class="no-js" lang="en" style="background-color:white;">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Register</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- favicon
+        ============================================ -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/ECommerce/admin/img/favicon.ico">
+    <!-- Google Fonts
+        ============================================ -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i,800" rel="stylesheet">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/ECommerce/admin/css/bootstrap.min.css">
+    <!-- Bootstrap CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/ECommerce/admin/css/font-awesome.min.css">
+    <!-- adminpro icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/ECommerce/admin/css/adminpro-custon-icon.css">
+    <!-- meanmenu icon CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/ECommerce/admin/css/meanmenu.min.css">
+    <!-- mCustomScrollbar CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/ECommerce/admin/css/jquery.mCustomScrollbar.min.css">
+    <!-- animate CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/ECommerce/admin/css/animate.css">
+    <!-- normalize CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/ECommerce/admin/normalize.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/ECommerce/admin/css/form.css">
+    <!-- style CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/ECommerce/admin/style.css">
+    <!-- responsive CSS
+        ============================================ -->
+    <link rel="stylesheet" href="~/ECommerce/admin/css/responsive.css">
+    <!-- modernizr JS
+        ============================================ -->
+    <script src="~/ECommerce/admin/js/vendor/modernizr-2.8.3.min.js"></script>
+
+   
+
+</head>
+
+<body class="materialdesign" style="background-color:white;">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+
+    <!-- Register Start-->
+    <div class="login-form-area mg-t-30 mg-b-15">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3"></div>
+                <form id="adminpro-register-form" class="adminpro-form" asp-controller="ECommerce" asp-action="SaveLogin" >
+                    <div class="col-lg-6">
+                        <div class="login-bg">
+                            <div class="row">
+
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="login-title" style="text-align:center">
+                                        <h1 style="color:black;font-size:35px;font-family:'Times New Roman', Times, serif">Registration</h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="login-input-head">
+                                        <p>Name<span class="required" style="color:red">*</span></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="login-input-area">
+                                        <input type="text" name="FullName" asp-for="LoginDetails.FullName" required />
+                                        <i class="fa fa-user login-user"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="login-input-head">
+                                        <p>Email<span class="required" style="color:red">*</span></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="login-input-area">
+                                        <input type="email" name="email" asp-for="LoginDetails.Email" required />
+                                        <i class="fa fa-envelope login-user" aria-hidden="true"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <div class="login-input-head">
+                                        <p>Password<span class="required" style="color:red">*</span></p>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="login-input-area">
+                                        <input type="password" name="password" asp-for="LoginDetails.Password" maxlength="8" required />
+                                        <h6 style="color:red">(Please Enter 8 Charaters)</h6>
+                                        <i class="fa fa-lock login-user"></i>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-4"></div>
+                                <div class="col-lg-8">
+                                    <div class="login-button-pro" style="text-align:center">
+                                        <button type="submit" class="login-button login-button-lg" onclick="alert('Register Successful!')">Register</button><br /><br />
+                                        <a asp-controller="ECommerce" asp-action="Login" id="linkButton"><h5>Log In?</h5></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="col-lg-3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Register End-->
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            toastr.options.timeOut = 1500; // 1.5s
+            //toastr.info('Page Loaded!');
+            $('#linkButton').click(function () {
+                toastr.success('Click Button');
+            });
+        });
+    </script>
+     
+            <script src="~/ECommerce/admin/js/vendor/jquery-1.11.3.min.js"></script>
+    <!-- bootstrap JS
+        ============================================ -->
+    <script src="~/ECommerce/admin/js/bootstrap.min.js"></script>
+    <!-- meanmenu JS
+        ============================================ -->
+    <script src="~/ECommerce/admin/js/jquery.meanmenu.js"></script>
+    <!-- mCustomScrollbar JS
+        ============================================ -->
+    <script src="~/ECommerce/admin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <!-- sticky JS
+        ============================================ -->
+    <script src="~/ECommerce/admin/js/jquery.sticky.js"></script>
+    <!-- scrollUp JS
+        ============================================ -->
+    <script src="~/ECommerce/admin/js/jquery.scrollUp.min.js"></script>
+    <!-- form validate JS
+        ============================================ -->
+    <script src="~/ECommerce/admin/js/jquery.form.min.js"></script>
+    <script src="~/ECommerce/admin/jquery.validate.min.js"></script>
+    <script src="~/ECommerce/admin/js/form-active.js"></script>
+    <!-- main JS
+        ============================================ -->
+    <script src="~/ECommerce/admin/js/main.js"></script>
+</body>
+
+</html>

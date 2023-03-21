@@ -1,0 +1,312 @@
+﻿@model ECommerce.Models.ECommerceModel;
+
+<body style="background-color:white;">
+    <section class="w3l-banner-slider-main inner-pagehny">
+        <div class="breadcrumb-infhny">
+
+            <div class="top-header-content">
+
+                <header class="tophny-header">
+                    <div class="container-fluid">
+                        <div class="top-right-strip row">
+                            <!--/left-->
+                            <div class="top-hny-left-content col-lg-6 pl-lg-0">
+                            </div>
+                            <!--//left-->
+                            <!--/right-->
+                            <ul class="top-hnt-right-content col-lg-6">
+
+                                <li class="button-log usernhy">
+                                    <a class="btn-open" href="#">
+                                        <span class="fa fa-user" aria-hidden="true"></span>
+                                    </a>
+                                </li>
+                                <li class="transmitvcart galssescart2 cart cart box_1">
+                                    <form action="#" method="post" class="last">
+                                        <input type="hidden" name="cmd" value="_cart">
+                                        <input type="hidden" name="display" value="1">
+                                        <button class="top_transmitv_cart" type="submit" name="submit" value="">
+                                            My Cart
+                                            <span class="fa fa-shopping-cart"></span>
+                                        </button>
+                                    </form>
+                                </li>
+                            </ul>
+                            <!--//right-->
+                            <div class="overlay-login text-left">
+                                <button type="button" class="overlay-close1">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </button>
+                                <div class="wrap">
+                                    <h5 class="text-center mb-4">Login Now</h5>
+                                    <div class="login-bghny p-md-5 p-4 mx-auto mw-100">
+                                        <!--/login-form-->
+                                        <form action="#" method="post">
+                                            <div class="form-group">
+                                                <p class="login-texthny mb-2">Email address</p>
+                                                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                                       placeholder="" required="">
+                                                <small id="emailHelp" class="form-text text-muted">
+                                                    We'll never share your email
+                                                    with anyone else.
+                                                </small>
+                                            </div>
+                                            <div class="form-group">
+                                                <p class="login-texthny mb-2">Password</p>
+                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="" required="">
+                                            </div>
+                                            <div class="form-check mb-2">
+                                                <div class="userhny-check">
+                                                    <label class="check-remember container">
+                                                        <input type="checkbox" class="form-check"> <span class="checkmark"></span>
+                                                        <p class="privacy-policy">Remember me</p>
+                                                    </label>
+                                                    <div class="clearfix"></div>
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="submit-login btn mb-4">Sign In</button>
+
+                                        </form>
+                                        <!--//login-form-->
+                                    </div>
+                                    <!---->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--/nav-->
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <div class="container-fluid serarc-fluid">
+                            <a class="navbar-brand" href="index.html">
+                                Spry<span class="lohny">S</span>tore
+                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon fa fa-bars"> </span>
+                            </button>
+
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ml-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-controller="ECommerce" asp-action="Customerdashboard">Home</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" asp-controller="ECommerce" asp-action="About">About</a>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="#">Contact</a>
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </nav>
+                    <!--//nav-->
+                </header>
+                <div class="breadcrumb-contentnhy">
+                    <div class="container">
+                        <nav aria-label="breadcrumb">
+                            <h2 class="hny-title text-center">TrackOrder</h2>
+                            <ol class="breadcrumb mb-0">
+                                <li>
+                                    <a href="index.html">MyOrder</a>
+                                    <span class="fa fa-angle-double-right"></span>
+                                </li>
+                                <li class="active">TrackOrder</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container px-1 px-md-4 py-5 mx-auto">
+        <div class="card">
+            <div class="row d-flex justify-content-between px-3 top">
+                <div class="d-flex">
+                    <h5>ORDER <span class="text-primary font-weight-bold">#Y34XDHR</span></h5>
+                </div>
+                <div class="d-flex flex-column text-sm-right">
+                    <p class="mb-0">Expected Arrival <span>01/12/19</span></p>
+                    <p>USPS <span class="font-weight-bold">234094567242423422898</span></p>
+                </div>
+            </div>
+            <!-- Add class 'active' to progress -->
+            <div class="row d-flex justify-content-center">
+                <div class="col-12">
+                    <ul id="progressbar" class="text-center">
+                        @if (ViewBag.OrderStatus == 1)
+                        {
+                            <li class="active step0"></li>
+                        }
+                        else if (ViewBag.OrderStatus == 2)
+                        {
+                            <li class="active step0"></li>
+                            <li class="active step0"></li>
+                        }
+                        else if (ViewBag.OrderStatus == 3)
+                        {
+                            <li class="active step0"></li>
+                            <li class="active step0"></li>
+                            <li class="active step0"></li>
+                        }
+                        else if (ViewBag.OrderStatus == 4)
+                        {
+                            <li class="active step0"></li>
+                            <li class="active step0"></li>
+                            <li class="active step0"></li>
+                            <li class="active step0"></li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div class="row justify-content-between top">
+                <div class="row d-flex icon-content">
+                    <img class="icon" src="https://i.imgur.com/9nnc9Et.png">
+                    <div class="d-flex flex-column">
+                        <p class="font-weight-bold">Order<br>Processed</p>
+                    </div>
+                </div>
+                <div class="row d-flex icon-content">
+                    <img class="icon" src="https://i.imgur.com/u1AzR7w.png">
+                    <div class="d-flex flex-column">
+                        <p class="font-weight-bold">Order<br>Shipped</p>
+                    </div>
+                </div>
+                <div class="row d-flex icon-content">
+                    <img class="icon" src="https://i.imgur.com/TkPm63y.png">
+                    <div class="d-flex flex-column">
+                        <p class="font-weight-bold">Order<br>in Route</p>
+                    </div>
+                </div>
+                <div class="row d-flex icon-content">
+                    <img class="icon" src="https://i.imgur.com/HdsziHP.png">
+                    <div class="d-flex flex-column">
+                        <p class="font-weight-bold">Order<br>Deliverd</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<style>
+    body {
+        color: #000;
+        overflow-x: hidden;
+        height: 100%;
+        background-color: #8C9EFF;
+        background-repeat: no-repeat;
+    }
+
+    .card {
+        z-index: 0;
+        background-color: #ECEFF1;
+        padding-bottom: 20px;
+        margin-top: 90px;
+        margin-bottom: 90px;
+        border-radius: 10px;
+    }
+
+    .top {
+        padding-top: 40px;
+        padding-left: 13% !important;
+        padding-right: 13% !important;
+    }
+
+    /*Icon progressbar*/
+    #progressbar {
+        margin-bottom: 30px;
+        overflow: hidden;
+        color: #455A64;
+        padding-left: 0px;
+        margin-top: 30px;
+    }
+
+        #progressbar li {
+            list-style-type: none;
+            font-size: 13px;
+            width: 25%;
+            float: left;
+            position: relative;
+            font-weight: 400;
+        }
+
+        #progressbar .step0:before {
+            font-family: FontAwesome;
+            content: "\f10c";
+            color: #fff;
+        }
+
+        #progressbar li:before {
+            width: 40px;
+            height: 40px;
+            line-height: 45px;
+            display: block;
+            font-size: 20px;
+            background: #C5CAE9;
+            border-radius: 50%;
+            margin: auto;
+            padding: 0px;
+        }
+
+        /*ProgressBar connectors*/
+        #progressbar li:after {
+            content: '';
+            width: 100%;
+            height: 12px;
+            background: #C5CAE9;
+            position: absolute;
+            left: 0;
+            top: 16px;
+            z-index: -1;
+        }
+
+        #progressbar li:last-child:after {
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            position: absolute;
+            left: -50%;
+        }
+
+        #progressbar li:nth-child(2):after, #progressbar li:nth-child(3):after {
+            left: -50%;
+        }
+
+        #progressbar li:first-child:after {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            position: absolute;
+            left: 50%;
+        }
+
+        #progressbar li:last-child:after {
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        #progressbar li:first-child:after {
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+        }
+
+        /*Color number of the step and the connector before it*/
+        #progressbar li.active:before, #progressbar li.active:after {
+            background: #651FFF;
+        }
+
+        #progressbar li.active:before {
+            font-family: FontAwesome;
+            content: "\f00c";
+        }
+
+    .icon {
+        width: 60px;
+        height: 60px;
+        margin-right: 15px;
+    }
+
+    .icon-content {
+        padding-bottom: 20px;
+    }
+</style>
